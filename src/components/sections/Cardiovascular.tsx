@@ -13,6 +13,7 @@ const Cardiovascular = () => {
       className="scroll-mt-60 break-after-page"
       aria-labelledby="section-Cardiovascular01"
       data-section-id="Cardiovascular01"
+      id="section-cardiovascular"
     >
       <section
         className="flex min-h-0 w-full grow flex-col gap-8"

@@ -2,6 +2,7 @@ import React from 'react';
 import Summary from './sections/Summary';
 import BrainAndNervous from './sections/BrainAndNervous';
 import Cardiovascular from './sections/Cardiovascular';
+import Highlight from './sections/Highlight';
 
 const MainContent = () => {
   return (
@@ -9,6 +10,7 @@ const MainContent = () => {
       className="flex h-full w-full grow flex-col md:items-center"
       aria-label="Health Report main content"
     >
+      s
       <div
         className="relative flex w-full flex-col overflow-y-auto pb-10"
         tabIndex={0}
@@ -30,7 +32,7 @@ const MainContent = () => {
                   aria-label="Biological age"
                   style={{
                     backgroundImage:
-                      'url("/images/backgrounds/summary_bg_1.png")',
+                      'url("/images/summary_bg_1.png")',
                   }}
                 >
                   <div className="absolute top-4 right-4">
@@ -375,6 +377,7 @@ const MainContent = () => {
           <div className="flex w-full flex-col items-center pt-10">
             <div className="report-content-container">
               <div className="hidden flex-col gap-16 md:flex">
+                <Highlight />
                 <Summary />
                 <BrainAndNervous />
                 <Cardiovascular />

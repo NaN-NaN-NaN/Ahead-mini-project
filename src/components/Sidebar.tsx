@@ -1,6 +1,12 @@
 import React from 'react';
 
 const Sidebar = () => {
+  const scrollToId = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <aside
       className="mx-10 hidden shrink-0 flex-col md:flex md:w-[322px]"
@@ -9,6 +15,7 @@ const Sidebar = () => {
       <div role="presentation">
         <div className="pt-6">
           <nav
+            id="sidebar-nav"
             className="shadow-soft flex h-[38px] w-full items-center gap-1 rounded-full bg-white p-1 md:w-[322px]"
             aria-label="Report views"
           >
@@ -72,6 +79,7 @@ const Sidebar = () => {
         </header>
       </div>
       <section
+        id="report-selector"
         className="shadow-soft flex w-full min-w-0 flex-col rounded-[20px] bg-white px-2 pt-2"
         aria-label="Report selector"
       >
@@ -169,6 +177,7 @@ const Sidebar = () => {
         role="presentation"
       >
         <nav
+          id="organ-systems-nav"
           className="shadow-soft flex flex-col rounded-[20px] bg-white p-2"
           aria-label="Organ systems navigation"
         >
@@ -199,6 +208,7 @@ const Sidebar = () => {
                 href="#Nervous05"
                 className="group"
                 aria-label="Brain & nervous, 1 findings out of range"
+                onClick={() => scrollToId('section-brain-and-nervous')}
               >
                 <div
                   className="grid h-[43px] cursor-pointer items-center gap-3 rounded-xl p-3 transition-colors hover:bg-selected/50"
@@ -250,6 +260,7 @@ const Sidebar = () => {
                 href="#Cardiovascular01"
                 className="group"
                 aria-label="Cardiovascular, 0 findings out of range"
+                onClick={() => scrollToId('section-cardiovascular')}
               >
                 <div
                   className="grid h-[43px] cursor-pointer items-center gap-3 rounded-xl p-3 transition-colors hover:bg-selected/50"
@@ -612,8 +623,11 @@ const Sidebar = () => {
               </a>
             </li>
           </ul>
+          haha
         </nav>
+
       </div>
+
     </aside>
   );
 };

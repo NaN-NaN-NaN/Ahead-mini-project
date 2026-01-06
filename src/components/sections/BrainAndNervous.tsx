@@ -11,13 +11,14 @@ const BrainAndNervous = () => {
   return (
     <section
       className="scroll-mt-60 break-after-page"
-      aria-labelledby="section-Nervous05"
-      data-section-id="Nervous05"
+      aria-labelledby="section-brain-and-nervous"
+      data-section-id="brain-and-nervous"
     >
       <section
         className="flex min-h-0 w-full grow flex-col gap-8"
         data-right-footer-text="Brain & nervous"
         aria-label="Brain & nervous"
+        id="section-brain-and-nervous"
       >
         <header className="hidden flex-col gap-4 md:flex">
           <div className="flex items-end justify-between text-lg">
@@ -328,6 +329,61 @@ const BrainAndNervous = () => {
                             <p>More details about Enlarged perivascular space in the brain...</p>
                           </div>
                         )}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div role="listitem">
+            <div
+              className="flex min-h-0 shrink-0 grow flex-col overflow-hidden w-full"
+              role="article"
+              aria-label="Brain volumetry MRI"
+            >
+              <div className="mb-4 shrink-0">
+                <div className="flex items-center justify-between font-medium">
+                  <div className="text-base" role="heading" aria-level={3}>
+                    Brain volumetry MRI
+                  </div>
+                </div>
+              </div>
+              <div className="flex min-h-0 flex-1 grow flex-col overflow-visible">
+                <ul
+                  className="flex shrink-0 flex-col gap-2 overflow-visible"
+                  role="list"
+                  aria-label="Biomarker results"
+                >
+                  <li>
+                    <div
+                      className="text-card-foreground rounded-xl flex w-full shrink-0 cursor-pointer flex-col bg-white p-4"
+                      role="article"
+                      aria-label="Thalamus volume"
+                    >
+                      <div
+                        className="flex flex-wrap items-start gap-3 transition-all duration-300 md:flex-nowrap"
+                        role="region"
+                        aria-label="Thalamus volume"
+                      >
+                        <div
+                          className="text-content flex-1 cursor-pointer text-left"
+                          aria-label="Thalamus volume, Out of range. Expand details"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-base font-medium">
+                              Thalamus volume
+                            </span>
+                          </div>
+                          <div className="mt-1">
+                            <button
+                              className="flex shrink-0 grow-0 cursor-pointer items-center gap-1 transition-opacity hover:opacity-80"
+                              type="button"
+                            >
+                              <div className="text-sm">Out of range</div>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </li>
