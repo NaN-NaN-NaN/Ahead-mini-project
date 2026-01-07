@@ -396,7 +396,7 @@ const BrainAndNervous = () => {
               aria-label="Brain volumetry MRI">
               <div className="mb-4 shrink-0">
                 <div className="flex items-center justify-between font-medium">
-                  <div className="text-base" role="heading" aria-level="3">Brain volumetry MRI</div>
+                  <div className="text-base" role="heading" aria-level={3}>Brain volumetry MRI</div>
                 </div>
               </div>
               <div className="flex min-h-0 flex-1 grow flex-col overflow-visible">

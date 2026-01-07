@@ -10,7 +10,7 @@ const Highlight = () => {
           <div
             className="flex items-center justify-between font-medium">
             <div className="text-base" role="heading"
-              aria-level="3">Highlights</div>
+              aria-level={3}>Highlights</div>
           </div>
         </div>
         <div
@@ -201,7 +201,7 @@ const Highlight = () => {
                               </div>
                               <div className="cornerstone-viewport h-full w-full bg-black pan-disabled"
                                 data-testid="dicom-viewer-container"
-                                tabIndex="-1"
+                                tabIndex={-1}
                                 data-viewport-uid="viewport-2"
                                 data-rendering-engine-uid="sharedMriRenderingEngine"
                                 style={{ cursor: 'default' }}
@@ -320,7 +320,6 @@ const Highlight = () => {
                         </svg></span></div>
                     <div className="mt-1">
                       <div className="flex shrink-0 grow-0 cursor-pointer items-center gap-1 transition-opacity hover:opacity-80"
-                        type="button"
                         aria-haspopup="dialog"
                         aria-expanded="false"
                         aria-controls="radix-_r_11_"
