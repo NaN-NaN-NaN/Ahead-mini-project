@@ -85,8 +85,26 @@ body {
   pointer-events: auto !important;
 }
 
-[class*="next-step"] button,
-[class*="NextStep"] button {
-  background-color: #FF5733 !important;
-  border-color: #FF5733 !important;
+/* 
+   Override NextStep button and progress bar colors.
+   NextStep injects inline styles, so we target them via attribute selectors.
+*/
+
+/* "Next" button: original blue -> rgb(72, 33, 74) */
+button[style*="background-color: rgb(37, 99, 235)"] {
+  background-color: rgb(72, 33, 74) !important;
+  border-color: rgb(72, 33, 74) !important;
+}
+
+/* "Finish" button: original green -> rgb(200, 207, 143) */
+button[style*="background-color: rgb(16, 185, 129)"] {
+  background-color: rgb(200, 207, 143) !important;
+  border-color: rgb(200, 207, 143) !important;
+  color: #48214a !important;
+  /* Contrast color for text */
+}
+
+/* "Progress Bar" fill: original blue -> rgb(200, 207, 143) */
+div[style*="background-color: rgb(37, 99, 235)"] {
+  background-color: rgb(200, 207, 143) !important;
 }
