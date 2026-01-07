@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import MainContent from '../components/MainContent';
@@ -28,12 +27,12 @@ const PageContent = () => {
               className="fixed top-0 z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"
             />
           </div>
-          <div className="flex h-dvh grow flex-col gap-4 overflow-hidden">
+          <div className="flex h-dvh min-h-0 grow flex-col gap-4 overflow-hidden">
             <article
-              className="relative flex min-h-0 w-full grow flex-col"
+              className="relative flex min-h-0 w-full grow flex-col overflow-x-hidden"
               aria-label="Health Report"
             >
-              <div className="pointer-events-none absolute top-0 left-0 z-60 h-full w-full transition-all duration-300 bg-transparent">
+              <div className="pointer-events-none absolute top-0 left-0 z-60 h-full w-full transition-all duration-300 bg-transparent overflow-hidden">
                 <div
                   role="dialog"
                   aria-modal="true"
@@ -120,10 +119,11 @@ const PageContent = () => {
                   </button>
                 </div>
               </div>
-              <div className="flex min-h-0 flex-1" role="presentation">
+              <div className="flex flex-1 min-h-0" role="presentation">
                 <Sidebar />
                 <MainContent />
               </div>
+
             </article>
           </div>
         </div>

@@ -13,10 +13,11 @@ const Summary = () => {
       className="pt flex w-full scroll-mt-60 break-inside-avoid flex-col gap-16"
       aria-labelledby="section-highlights"
       data-section-id="highlights"
+      id="section-summary"
     >
       <section className="flex flex-col gap-4" aria-label="Report summary">
         <div className="text-lg">Summary</div>
-        <div className="text-card-foreground rounded-xl bg-white p-4">
+        <div className="text-card-foreground rounded-xl bg-white p-4" >
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <div className="flex w-full flex-row items-center justify-between">
@@ -38,6 +39,7 @@ const Summary = () => {
                   <div
                     className="overflow-hidden whitespace-pre-line transition-all duration-300 shrink-1"
                     style={{ maxHeight: isExpanded ? 'none' : '120px' }} // Dynamically set maxHeight
+                    id="doctor-summary-card"
                   >
                     <div className="text-[15px] leading-[1.3] whitespace-pre-line">
                       Hello, Your recent health check-up provides a detailed
@@ -95,7 +97,7 @@ const Summary = () => {
                 </button>
               </div>
             </div>
-            <div className="flex w-full flex-col gap-3">
+            <div className="flex w-full flex-col gap-3" id="section-follow-up">
               <div className="bg-background flex grow cursor-pointer items-center gap-3 rounded-2xl py-3 pr-6 pl-3">
                 <div className="relative mx-2 h-16 w-16">
                   <div className="shadow-overlay absolute inset-0 flex h-full min-h-0 w-full flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-white z-10">

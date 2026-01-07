@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNextStep } from 'nextstepjs';
+import ChatInterface from './ChatInterface';
 
 const Sidebar = () => {
+  const { startNextStep } = useNextStep();
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const handleRestartTour = () => {
+    startNextStep('main-walkthrough');
+    setIsSupportOpen(false);
+  };
+
+  const handleOpenChat = () => {
+    setIsChatOpen(true);
+    setIsSupportOpen(false);
+  };
+
   return (
     <aside
-      className="mx-10 hidden shrink-0 flex-col md:flex md:w-[322px]"
+      className="mx-10 hidden shrink-0 flex-col md:flex md:w-[322px] relative h-full"
       aria-label="Report sidebar"
     >
-      <div role="presentation">
+      <div role="presentation" >
         <div className="pt-6">
           <nav
             id="sidebar-nav"
@@ -54,6 +71,7 @@ const Sidebar = () => {
                 Health report
               </button>
               <button
+                id="section-action-plan"
                 role="tab"
                 aria-selected="false"
                 aria-disabled="false"
@@ -173,7 +191,7 @@ const Sidebar = () => {
         </div>
       </section>
       <div
-        className="mt-6 flex-1 overflow-y-auto"
+        className="mt-6 shrink min-h-0 overflow-y-auto"
         role="presentation"
       >
         <nav
@@ -203,7 +221,9 @@ const Sidebar = () => {
                 </div>
               </a>
             </li>
-            <li aria-label="Brain & nervous, 1 findings out of range">
+            <li aria-label="Brain & nervous, 1 findings out of range"
+              id="category-sidebar"
+            >
               <a
                 href="#Nervous05"
                 className="group"
@@ -623,11 +643,75 @@ const Sidebar = () => {
               </a>
             </li>
           </ul>
-          haha
         </nav>
 
       </div>
 
+      {/* Support Section */}
+      <div className="mt-4 pt-4 relative"
+        id="section-support">
+        {isSupportOpen && (
+          <div className="absolute top-full left-0 w-full mt-2 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
+            <button
+              onClick={handleRestartTour}
+              className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 flex items-center gap-2 transition-colors cursor-pointer"
+            >
+              <span className="text-lg">🔄</span>
+              Restart Tour
+            </button>
+            <div className="h-px bg-gray-100" />
+            <button
+              onClick={handleOpenChat}
+              className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 flex items-center gap-2 transition-colors cursor-pointer"
+            >
+              <span className="text-lg">🤖</span>
+              Ask AI
+            </button>
+          </div>
+        )}
+
+        <button
+          onClick={() => setIsSupportOpen(!isSupportOpen)}
+          className={`flex w-full items-center gap-3 rounded-2xl p-3 text-left transition-colors cursor-pointer ${isSupportOpen ? 'bg-selected border-selected' : 'bg-white hover:bg-gray-50'}`}
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gray-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-info h-5 w-5 text-gray-600"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+            </svg>
+          </div>
+          <span className="text-sm font-medium">Support</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`lucide lucide-chevron-down h-4 w-4 ml-auto transition-transform ${isSupportOpen ? 'rotate-180' : ''}`}
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </div>
+
+      {isChatOpen && <ChatInterface onClose={() => setIsChatOpen(false)} />}
+      <div className="flex-1" />s
     </aside>
   );
 };
